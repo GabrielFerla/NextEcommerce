@@ -15,7 +15,7 @@ class Home extends Component
      */
     public function getSaleCollectionProperty()
     {
-        return Url::whereElementType(Collection::class)->whereSlug('sale')->first()?->element ?? null;
+        return Url::whereElementType(Collection::class)->whereSlug('promocao')->first()?->element ?? null;
     }
 
     /**

@@ -7,22 +7,15 @@
 
                 <x-brand.logo class="w-auto h-6 text-indigo-600" />
             </a>
-
-            <nav class="hidden lg:gap-4 lg:flex lg:ml-8">
-                @foreach ($this->collections as $collection)
-                    <a class="text-sm font-medium transition hover:opacity-75"
-                       href="{{ route('collection.view', $collection->defaultUrl->slug) }}">
-                        {{ $collection->translateAttribute('name') }}
-                    </a>
-                @endforeach
-            </nav>
         </div>
 
-        <div class="flex items-center justify-between flex-1 ml-4 lg:justify-end">
+        <div class="flex items-center justify-between flex-1 ml-4 lg:justify-center">
             <x-header.search class="max-w-sm mr-4" />
 
             <div class="flex items-center -mr-4 sm:-mr-6 lg:mr-0">
-                @livewire('components.cart')
+                <div class="lg:hidden">
+                    @livewire('components.cart')
+                </div>
 
                 <div x-data="{ mobileMenu: false }">
                     <button x-on:click="mobileMenu = !mobileMenu"
@@ -62,5 +55,15 @@
                 </div>
             </div>
         </div>
+        <div class="hidden lg:flex">
+            @livewire('components.cart')
+        </div>
+    </div>
+    <div class="flex items-center justify-between h-16 mx-auto max-w-screen-2xl ">
+        <nav class="hidden lg:gap-4 lg:flex lg:ml-1  ">
+            @foreach ($this->collections as $collection)
+                <a href="{{ route('collection.view', $collection->defaultUrl->slug) }}" class="inline-flex items-center rounded-md bg-gray-50 px-4 py-2 text-base font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 hover:opacity-75"> {{ $collection->translateAttribute('name') }}</a>
+            @endforeach
+        </nav>
     </div>
 </header>

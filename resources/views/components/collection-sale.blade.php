@@ -8,13 +8,13 @@
 
                 @if ($this->saleCollection->translateAttribute('description'))
                     <p class="mt-1 text-lg font-medium">
-                        {{ $this->saleCollection->translateAttribute('description') }}
+                        {!! $this->saleCollection->translateAttribute('description') !!}
                     </p>
                 @endif
 
                 <a href="{{ route('collection.view', $this->saleCollection->defaultUrl->slug) }}"
                    class="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-black rounded-lg hover:ring-1 hover:ring-black">
-                    Shop the Sale
+                    Verifique a Promoção
                 </a>
             </div>
 

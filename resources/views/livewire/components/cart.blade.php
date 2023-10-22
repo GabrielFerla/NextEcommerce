@@ -2,7 +2,7 @@
      x-data="{
          linesVisible: @entangle('linesVisible')
      }">
-    <button class="grid w-16 h-16 transition border-l border-gray-100 lg:border-l-transparent hover:opacity-75"
+    <button class="grid w-8 h-8 transition border-l border-gray-100 lg:border-l-transparent hover:opacity-75"
             x-on:click="linesVisible = !linesVisible">
         <span class="sr-only">Carrinho</span>
 
@@ -103,7 +103,7 @@
                     </div>
                 @else
                     <p class="py-4 text-sm font-medium text-center text-gray-500">
-                        YSeu carrinho está vazio
+                        Seu carrinho está vazio
                     </p>
                 @endif
 

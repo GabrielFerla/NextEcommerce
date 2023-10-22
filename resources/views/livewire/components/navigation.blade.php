@@ -19,7 +19,7 @@
 
                 <div x-data="{ mobileMenu: false }">
                     <button x-on:click="mobileMenu = !mobileMenu"
-                            class="grid flex-shrink-0 w-16 h-16 border-l border-gray-100 lg:hidden">
+                            class="grid flex-shrink-0 w-8 h-8 border-l border-gray-100 lg:hidden">
                         <span class="sr-only">Toggle Menu</span>
 
                         <span class="place-self-center">

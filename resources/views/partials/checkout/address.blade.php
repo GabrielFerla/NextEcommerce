@@ -2,7 +2,7 @@
       class="bg-white border border-gray-100 rounded-xl">
     <div class="flex items-center justify-between h-16 px-6 border-b border-gray-100">
         <h3 class="text-lg font-medium">
-            {{ ucfirst($type) }} Details
+            Detalhes do Endereço
         </h3>
 
         @if ($type == 'shipping' && $step == $currentStep)
@@ -13,7 +13,7 @@
                        wire:model.defer="shippingIsBilling" />
 
                 <span class="ml-2 text-xs font-medium">
-                    Same as billing
+                    Igual ao Endereço de Cobrança
                 </span>
             </label>
         @endif
@@ -22,7 +22,7 @@
             <button class="px-5 py-2 text-sm font-medium text-gray-600 rounded-lg hover:bg-gray-100 hover:text-gray-700"
                     type="button"
                     wire:click.prevent="$set('currentStep', {{ $step }})">
-                Edit
+                Editar
             </button>
         @endif
     </div>
@@ -32,7 +32,7 @@
             @if ($step == $currentStep)
                 <div class="grid grid-cols-6 gap-4">
                     <x-input.group class="col-span-3"
-                                   label="First name"
+                                   label="Primeiro Nome"
                                    :errors="$errors->get($type . '.first_name')"
                                    required>
                         <x-input.text wire:model.defer="{{ $type }}.first_name"
@@ -40,27 +40,21 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-3"
-                                   label="Last name"
+                                   label="Sobrenome"
                                    :errors="$errors->get($type . '.last_name')"
                                    required>
                         <x-input.text wire:model.defer="{{ $type }}.last_name"
                                       required />
                     </x-input.group>
 
-                    <x-input.group class="col-span-6"
-                                   label="Company name"
-                                   :errors="$errors->get($type . '.company_name')">
-                        <x-input.text wire:model.defer="{{ $type }}.company_name" />
-                    </x-input.group>
-
                     <x-input.group class="col-span-6 sm:col-span-3"
-                                   label="Contact phone"
+                                   label="Telefone"
                                    :errors="$errors->get($type . '.contact_phone')">
                         <x-input.text wire:model.defer="{{ $type }}.contact_phone" />
                     </x-input.group>
 
                     <x-input.group class="col-span-6 sm:col-span-3"
-                                   label="Contact email"
+                                   label="Email"
                                    :errors="$errors->get($type . '.contact_email')"
                                    required>
                         <x-input.text wire:model.defer="{{ $type }}.contact_email"
@@ -73,7 +67,7 @@
                     </div>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="Address line 1"
+                                   label="Endereço"
                                    :errors="$errors->get($type . '.line_one')"
                                    required>
                         <x-input.text wire:model.defer="{{ $type }}.line_one"
@@ -81,19 +75,14 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="Address line 2"
+                                   label="Bairro"
                                    :errors="$errors->get($type . '.line_two')">
                         <x-input.text wire:model.defer="{{ $type }}.line_two" />
                     </x-input.group>
 
-                    <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="Address line 3"
-                                   :errors="$errors->get($type . '.line_three')">
-                        <x-input.text wire:model.defer="{{ $type }}.line_three" />
-                    </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="City"
+                                   label="Cidade"
                                    :errors="$errors->get($type . '.city')"
                                    required>
                         <x-input.text wire:model.defer="{{ $type }}.city"
@@ -101,13 +90,13 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="State / Province"
+                                   label="Estado"
                                    :errors="$errors->get($type . '.state')">
                         <x-input.text wire:model.defer="{{ $type }}.state" />
                     </x-input.group>
 
                     <x-input.group class="col-span-3 sm:col-span-2"
-                                   label="Postcode"
+                                   label="CEP"
                                    :errors="$errors->get($type . '.postcode')"
                                    required>
                         <x-input.text wire:model.defer="{{ $type }}.postcode"
@@ -115,11 +104,11 @@
                     </x-input.group>
 
                     <x-input.group class="col-span-6"
-                                   label="Country"
+                                   label="País"
                                    required>
                         <select class="w-full p-3 border border-gray-200 rounded-lg sm:text-sm"
                                 wire:model.defer="{{ $type }}.country_id">
-                            <option value>Select a country</option>
+                            <option value>Selecione um País</option>
                             @foreach ($this->countries as $country)
                                 <option value="{{ $country->id }}"
                                         wire:key="country_{{ $country->id }}">
@@ -214,13 +203,13 @@
                             wire:target="saveAddress">
                         <span wire:loading.remove
                               wire:target="saveAddress">
-                            Save Address
+                            Salvar Endereço
                         </span>
 
                         <span wire:loading
                               wire:target="saveAddress">
                             <span class="inline-flex items-center">
-                                Saving
+                                Salvando
 
                                 <x-icon.loading />
                             </span>

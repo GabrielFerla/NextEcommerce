@@ -123,9 +123,9 @@ class CheckoutPage extends Component
         }
 
         // Do we have a shipping address?
-        $this->shipping = $this->cart->shippingAddress ?: new CartAddress;
+        $this->shipping = $this->cart->shippingAddress ?: new CartAddress();
 
-        $this->billing = $this->cart->billingAddress ?: new CartAddress;
+        $this->billing = $this->cart->billingAddress ?: new CartAddress();
 
         $this->determineCheckoutStep();
     }
@@ -261,7 +261,7 @@ class CheckoutPage extends Component
      */
     public function saveShippingOption()
     {
-        $option = $this->shippingOptions->first(fn ($option) => $option->getIdentifier() == $this->chosenShipping);
+        $option = $this->shippingOptions->first(fn($option) => $option->getIdentifier() == $this->chosenShipping);
 
         CartSession::setShippingOption($option);
 
@@ -293,7 +293,7 @@ class CheckoutPage extends Component
      */
     public function getCountriesProperty()
     {
-        return Country::whereIn('iso3', ['GBR', 'USA'])->get();
+        return Country::whereIn('iso3', ['BRA'])->get();
     }
 
     /**

@@ -1638,10 +1638,6 @@ select {
     display: block;
   }
 
-  .sm\:hidden {
-    display: none;
-  }
-
   .sm\:h-20 {
     height: 5rem;
   }

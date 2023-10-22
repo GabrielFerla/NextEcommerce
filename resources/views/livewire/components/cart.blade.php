@@ -4,7 +4,7 @@
      }">
     <button class="grid w-16 h-16 transition border-l border-gray-100 lg:border-l-transparent hover:opacity-75"
             x-on:click="linesVisible = !linesVisible">
-        <span class="sr-only">Cart</span>
+        <span class="sr-only">Carrinho</span>
 
         <span class="place-self-center">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@
                     </div>
                 @else
                     <p class="py-4 text-sm font-medium text-center text-gray-500">
-                        Your cart is empty
+                        YSeu carrinho está vazio
                     </p>
                 @endif
 
@@ -118,7 +118,7 @@
                 </dl>
             @else
                 <p class="py-4 text-sm font-medium text-center text-gray-500">
-                    Your cart is empty
+                    Seu carrinho está vazio
                 </p>
             @endif
         </div>
@@ -128,7 +128,7 @@
                 <button class="block w-full p-3 text-sm font-medium text-blue-800 border border-blue-600 rounded-lg hover:ring-1 hover:ring-blue-600"
                         type="button"
                         wire:click="updateLines">
-                    Update Cart
+                    Atualizar Carrinho
                 </button>
 
                 <a class="block w-full p-3 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-500"
@@ -138,7 +138,7 @@
 
                 <a class="inline-block text-sm font-medium text-gray-600 underline hover:text-gray-500"
                    href="{{ url('/') }}">
-                    Continue Shopping
+                    Continue Comprando
                 </a>
             </div>
         @endif

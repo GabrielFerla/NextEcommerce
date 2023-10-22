@@ -1,22 +1,13 @@
 <div class="bg-white border border-gray-100 rounded-xl">
     <div class="flex items-center h-16 px-6 border-b border-gray-100">
         <h3 class="text-lg font-medium">
-            Payment
+            Pagamento
         </h3>
     </div>
 
     @if ($currentStep >= $step)
         <div class="p-6 space-y-4">
             <div class="flex gap-4">
-                <button @class([
-                    'px-5 py-2 text-sm border font-medium rounded-lg',
-                    'text-green-700 border-green-600 bg-green-50' => $paymentType === 'card',
-                    'text-gray-500 hover:text-gray-700' => $paymentType !== 'card',
-                ])
-                        type="button"
-                        wire:click.prevent="$set('paymentType', 'card')">
-                    Pay by card
-                </button>
 
                 <button @class([
                     'px-5 py-2 text-sm border font-medium rounded-lg',
@@ -25,7 +16,7 @@
                 ])
                         type="button"
                         wire:click.prevent="$set('paymentType', 'cash-in-hand')">
-                    Pay with cash
+                    Pagar em Dinheiro
                 </button>
             </div>
 
@@ -37,7 +28,9 @@
             @if ($paymentType == 'cash-in-hand')
                 <form wire:submit.prevent="checkout">
                     <div class="p-4 text-sm text-center text-blue-700 rounded-lg bg-blue-50">
-                        Payment is offline, no card details needed.
+                        <p>
+                            Você pagará em dinheiro quando receber o pedido.
+                        </p>
                     </div>
 
                     <button class="px-5 py-3 mt-4 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500"
@@ -45,7 +38,7 @@
                             wire:key="payment_submit_btn">
                         <span wire:loading.remove.delay
                               wire:target="checkout">
-                            Submit Order
+                            Finalizar Pedido
                         </span>
                         <span wire:loading.delay
                               wire:target="checkout">
